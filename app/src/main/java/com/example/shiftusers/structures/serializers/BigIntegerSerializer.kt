@@ -16,14 +16,14 @@ class BigIntegerSerializer {
 
     override fun deserialize(decoder: Decoder): BigInteger =
         when (decoder) {
-            is JsonDecoder -> decoder.decodeJsonElement().jsonPrimitive.content.toBigInteger()
-            else -> decoder.decodeString().toBigInteger()
+            is JsonDecoder -> decoder.decodeJsonElement().jsonPrimitive.content.toBigInteger(radix = 16)
+            else -> decoder.decodeString().toBigInteger(radix = 16)
         }
 
     @OptIn(ExperimentalSerializationApi::class)
     override fun serialize(encoder: Encoder, value: BigInteger)  =
         when (encoder) {
-            is JsonEncoder -> encoder.encodeJsonElement(JsonUnquotedLiteral(value.toString()))
-            else -> encoder.encodeString(value.toString())
+            is JsonEncoder -> encoder.encodeJsonElement(JsonUnquotedLiteral(value.toString(16)))
+            else -> encoder.encodeString(value.toString(16))
         }
 }

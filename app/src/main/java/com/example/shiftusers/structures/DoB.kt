@@ -3,7 +3,7 @@ package com.example.shiftusers.structures
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Registration(
+data class DoB(
     val date: String,
     val age: Int
 )
