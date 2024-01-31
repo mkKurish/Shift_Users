@@ -1,19 +1,20 @@
 package com.example.shiftusers.structures
 
+import io.realm.RealmObject
 import kotlinx.serialization.Serializable
 
 @Serializable
-class ShiftUser(
-    val gender: Genders,
-    val name: Name,
-    val location: Location,
-    val email: String,
-    val login: UserLogin,
-    val dob: DoB,
-    val registered: Registration,
-    val phone: String,
-    val cell: String,
-    val id: Identification,
-    val picture: ProfilePic,
-    val nat: String,
-)
+open class ShiftUser(
+    var gender: String? = null,
+    var name: Name? = null,
+    var location: Location? = null,
+    var email: String? = null,
+    var login: UserLogin? = null,
+    var dob: DoB? = null,
+    var registered: Registration? = null,
+    var phone: String? = null,
+    var cell: String? = null,
+    var id: Identification? = null,
+    var picture: ProfilePic? = null,
+    var nat: String? = null
+): RealmObject()

@@ -1,9 +1,10 @@
 package com.example.shiftusers.structures
 
+import io.realm.RealmObject
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Coordinates(
-    val latitude: Double,
-    val longitude: Double
-)
+open class Coordinates(
+    var latitude: Double? = null,
+    var longitude: Double? = null
+): RealmObject()

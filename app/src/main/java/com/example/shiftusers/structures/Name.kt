@@ -1,10 +1,11 @@
 package com.example.shiftusers.structures
 
+import io.realm.RealmObject
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Name(
-    val title: Titles,
-    val first: String,
-    val last: String
-)
+open class Name(
+    var title: String? = null,
+    var first: String? = null,
+    var last: String? = null
+): RealmObject()

@@ -6,12 +6,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -30,7 +28,6 @@ import coil.compose.rememberImagePainter
 import com.example.shiftusers.structures.DoB
 import com.example.shiftusers.structures.Location
 import com.example.shiftusers.structures.Registration
-import com.example.shiftusers.structures.Titles
 import com.example.shiftusers.ui.theme.CustomTheme
 import com.example.shiftusers.ui.theme.cornersRadius
 import com.example.shiftusers.ui.theme.spacingMedium
@@ -38,7 +35,7 @@ import com.example.shiftusers.ui.theme.spacingSmall
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
-fun ProfileMainInfo(fullName: String, title: Titles, pic: String) {
+fun ProfileMainInfo(fullName: String, title: String, pic: String) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -87,7 +84,8 @@ fun ContactsInfo(email: String, phone: String, cell: String, callback: (String) 
             modifier = Modifier
                 .padding(spacingSmall),
             colors = ButtonDefaults.buttonColors(containerColor = CustomTheme.colors.mainCard),
-            shape = RoundedCornerShape(cornersRadius)) {
+            shape = RoundedCornerShape(cornersRadius)
+        ) {
             Text(
                 modifier = Modifier.background(Color.Transparent),
                 text = buildAnnotatedString {
@@ -155,7 +153,7 @@ fun LocationInfo(location: Location) {
         )
         Spacer(modifier = Modifier.size(spacingSmall))
         Text(
-            text = "timezone: ${location.timezone.offset} (${location.timezone.description})",
+            text = "timezone: ${location.timezone!!.offset} (${location.timezone!!.description})",
             color = CustomTheme.colors.primaryText,
             fontSize = 18.sp
         )

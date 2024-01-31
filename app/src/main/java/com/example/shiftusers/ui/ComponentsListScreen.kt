@@ -1,7 +1,6 @@
 package com.example.shiftusers.ui
 
 
-import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -24,18 +23,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import androidx.core.app.ComponentActivity
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
-import com.example.shiftusers.DetailsActivity
 import com.example.shiftusers.structures.ShiftUser
 import com.example.shiftusers.ui.theme.CustomTheme
 import com.example.shiftusers.ui.theme.cornersRound
 import com.example.shiftusers.ui.theme.spacingSmall
-import kotlinx.serialization.json.Json
 
 @Composable
-fun UsersList(content: List<ShiftUser>,  navigation: (ShiftUser) -> Unit) {
+fun UsersList(content: List<ShiftUser>, navigation: (ShiftUser) -> Unit) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -47,7 +43,6 @@ fun UsersList(content: List<ShiftUser>,  navigation: (ShiftUser) -> Unit) {
                 ListItem(it, navigation)
             }
         }
-
     }
 }
 
@@ -76,27 +71,29 @@ fun ListItem(user: ShiftUser, navigation: (ShiftUser) -> Unit) {
             ) {
                 Image(
                     modifier = Modifier.fillMaxSize(),
-                    painter = rememberImagePainter(user.picture.medium),
+                    painter = rememberImagePainter(user.picture!!.medium),
                     contentDescription = "Profile picture",
                     contentScale = ContentScale.Crop
                 )
             }
             Spacer(modifier = Modifier.size(spacingSmall))
-            Column(modifier = Modifier.height(64.dp),
-                verticalArrangement = Arrangement.SpaceAround) {
+            Column(
+                modifier = Modifier.height(64.dp),
+                verticalArrangement = Arrangement.SpaceAround
+            ) {
                 Text(
                     modifier = Modifier.fillMaxWidth(),
-                    text = "${user.name.first} ${user.name.last}",
+                    text = "${user.name!!.first} ${user.name!!.last}",
                     color = CustomTheme.colors.primaryText
                 )
                 Text(
                     modifier = Modifier.fillMaxWidth(),
-                    text = user.phone,
+                    text = user.phone!!,
                     color = CustomTheme.colors.secondaryText
                 )
                 Text(
                     modifier = Modifier.fillMaxWidth(),
-                    text = "${user.location.country}, ${user.location.city}",
+                    text = "${user.location!!.country}, ${user.location!!.city}",
                     color = CustomTheme.colors.secondaryText
                 )
             }

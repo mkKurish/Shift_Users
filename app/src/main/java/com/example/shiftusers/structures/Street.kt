@@ -1,9 +1,10 @@
 package com.example.shiftusers.structures
 
+import io.realm.RealmObject
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Street(
-    val number: Int,
-    val name: String
-)
+open class Street(
+    var number: Int? = null,
+    var name: String? = null
+): RealmObject()

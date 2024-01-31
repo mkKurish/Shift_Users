@@ -57,15 +57,15 @@ class DetailsActivity : ComponentActivity() {
                         .background(color = CustomTheme.colors.background)
                 ) {
                     ProfileMainInfo(
-                        "${user!!.name.first} ${user.name.last}",
-                        user.name.title,
-                        user.picture.large
+                        "${user!!.name!!.first} ${user.name!!.last}",
+                        user.name!!.title!!,
+                        user.picture!!.large!!
                     )
-                    ContactsInfo(email = user.email, phone = user.phone, cell = user.cell) {
+                    ContactsInfo(email = user.email!!, phone = user.phone!!, cell = user.cell!!) {
                         Toast.makeText(this@DetailsActivity, it, Toast.LENGTH_SHORT).show()
                     }
-                    LocationInfo(location = user.location)
-                    RegistrationAndBirthInfo(dob = user.dob, registration = user.registered)
+                    LocationInfo(location = user.location!!)
+                    RegistrationAndBirthInfo(dob = user.dob!!, registration = user.registered!!)
                 }
                 Box(
                     modifier = Modifier

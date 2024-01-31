@@ -1,7 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id ("org.jetbrains.kotlin.plugin.serialization") version "1.9.0"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.0"
+    id("org.jetbrains.kotlin.kapt")
+    id("realm-android")
 }
 
 android {
@@ -56,6 +58,7 @@ dependencies {
     implementation("io.ktor:ktor-client-cio:1.6.2")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.17.0")
     implementation("io.coil-kt:coil-compose:1.3.1")
+
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")

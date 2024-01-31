@@ -1,10 +1,11 @@
 package com.example.shiftusers.structures
 
+import io.realm.RealmObject
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ProfilePic(
-    val large: String,
-    val medium: String,
-    val thumbnail: String
-)
+open class ProfilePic(
+    var large: String? = null,
+    var medium: String? = null,
+    var thumbnail: String? = null
+): RealmObject()
