@@ -32,9 +32,10 @@ import com.example.shiftusers.structures.ShiftUser
 import com.example.shiftusers.ui.theme.CustomTheme
 import com.example.shiftusers.ui.theme.cornersRound
 import com.example.shiftusers.ui.theme.spacingSmall
+import kotlinx.serialization.json.Json
 
 @Composable
-fun UsersList(content: List<ShiftUser>, packageContext: ComponentActivity) {
+fun UsersList(content: List<ShiftUser>,  navigation: (ShiftUser) -> Unit) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -43,7 +44,7 @@ fun UsersList(content: List<ShiftUser>, packageContext: ComponentActivity) {
     ) {
         content.forEach {
             item {
-                ListItem(it, packageContext)
+                ListItem(it, navigation)
             }
         }
 
@@ -52,15 +53,14 @@ fun UsersList(content: List<ShiftUser>, packageContext: ComponentActivity) {
 
 @OptIn(ExperimentalCoilApi::class, ExperimentalMaterial3Api::class)
 @Composable
-fun ListItem(user: ShiftUser, packageContext: ComponentActivity) {
+fun ListItem(user: ShiftUser, navigation: (ShiftUser) -> Unit) {
     Card(
         colors = CardDefaults.cardColors(Color.LightGray),
         modifier = Modifier
             .fillMaxWidth()
             .padding(spacingSmall),
         onClick = {
-            val navigate = Intent(packageContext, DetailsActivity::class.java)
-            packageContext.startActivity(navigate)
+            navigation(user)
         }
     ) {
         Row(
