@@ -54,6 +54,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     implementation("io.ktor:ktor-client-core:1.6.2")
     implementation("io.ktor:ktor-client-cio:1.6.2")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.17.0")
+    implementation("io.coil-kt:coil-compose:1.3.1")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")

@@ -27,6 +27,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DetailsActivity"
+            android:exported="false"
+            android:label="@string/details"
+            android:theme="@style/Theme.ShiftUsers" />
     </application>
 
 </manifest>
