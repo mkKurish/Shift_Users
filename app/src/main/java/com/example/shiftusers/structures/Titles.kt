@@ -1,5 +1,5 @@
 package com.example.shiftusers.structures
 
 enum class Titles {
-    Mr, Mrs, Miss, Ms, Monsieur
+    Mr, Mrs, Miss, Ms, Monsieur, Mademoiselle, Madame
 }
